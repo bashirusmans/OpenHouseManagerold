@@ -8,12 +8,9 @@
     <title>Attendance Recorder</title>
 </head>
 <body class="dark" style="height: 100%">
-    <script>
-        var teacherurl = "{{ url('/teacher') }}";
-    </script>
     <nav class="navbar navbar-dark bg-dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="{{ url('/') }}">Attendance Recorder</a>
+            <a class="text-danger navbar-brand" href="{{ url('/') }}">Open House Manager</a>
             <div class="d-flex">
                 <div class="mt-1 mx-1">
                     @if (Auth::check())

@@ -21,6 +21,18 @@ use App\Models\Evaluator;
 */
 
 Route::get('/', function () {
+    // $userData = [
+    //     'fullname' => 'Usman',
+    //     'email' => 'c@c',
+    //     'role' => 'admin',
+    //     'password' => 'Yoman123',
+    // ];
+
+    // // Hash the password before saving it
+    // $userData['password'] = Hash::make($userData['password']);
+
+    // // Create a new user
+    // $user = User::create($userData);
     return view('index');
 });
 
@@ -39,7 +51,12 @@ Route::any('/login', function () {
             if ($user->role === 'evaluator') {
                 return redirect('/evaluator');
             }
-            return redirect('/proj-group');
+            elseif ($user->role === 'admin') {
+                return redirect('/admin');
+            }
+            else{
+                return redirect('/proj-group');
+            }
         } else {
             // Authentication failed
             return redirect('/login')->with('error', 'Invalid credentials. Please try again.');
@@ -53,43 +70,18 @@ Route::get('/logout', function () {
     return redirect('/login');
 })->name('logout');
 
-Route::any('/evaluator', function () {
+Route::get('/evaluator', function () {
     
-     
-        // $teacherId = auth()->user()->id;
-
-        // // Retrieve the teacher
-        // $teacher = User::findOrFail($teacherId);
-        // $classes = ClassModel::where('teacherid', $teacher->id);
-        // $classId = ClassModel::where('teacherid', $teacher->id)->first()->id;
-        // $attendances = Attendance::where('classid', $classId)
-        // ->get();
-
-
-        // if (request()->isMethod('post')) {
-        //     foreach ($attendances as $attendance) {
-        //         if (request()->has($attendance->studentid)) {
-        //             $attendance->isPresent = 1;
-        //         }
-        //         else {
-        //             $attendance->isPresent = 0;
-        //         }
-        //         $attendance->save();
-        //     }
-        //     return view('teacher', ['attendances' => $attendances, 'class' => ClassModel::where('teacherid', $teacher->id)->first()]);
-        // }
-
         
-    return view('teacher');
+    return view('evaluator');
 });
 
 Route::get('/proj-group', function () {
-    // $studentid = auth()->user()->id;
-    // $attendances = Attendance::where('studentid', $studentid)->get();
-    // $count = $attendances->count();
-    // $presents = Attendance::where('studentid', $studentid)
-    // ->where('isPresent', 1)->count();
-    // $percentage = ($count > 0) ? ($presents / $count) * 100 : 0;
 
-    return view('student');
+    return view('group');
+});
+
+Route::get('/admin', function () {
+
+    return view('admin');
 });

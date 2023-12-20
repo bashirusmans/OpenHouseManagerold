@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="d-flex justify-content-center" style="height:90%">
-        <div class="container shadow-lg mx-3 border bg-dark my-auto rounded-5" style="width:700px; height:350px">
+        <div class="container shadow-lg mx-3 border bg-secondary my-auto rounded-5" style="width:700px; height:350px">
             <form id="loginform" method="POST" style="height:90%">
                 @csrf
                 <div class="mt-3" style="height:70%">

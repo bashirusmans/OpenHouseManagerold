@@ -40,6 +40,10 @@ h1,h2,h3,h4,h5,h6{
 	color: black
 }
 
+.bg-secondary{
+	background-color: var(--inputbox)!important;
+}
+
 .text-danger{
     color: var(--buttons)!important;
 }
@@ -50,11 +54,12 @@ h1,h2,h3,h4,h5,h6{
 
 
 :root{
-    --nav: #1f2833;
+    --nav: #162231;
     --buttons: #66fcf1;
     --navlight: #388087;
     --buttonslight: #f6f6f2;
     --inputs: #0b0c10;
+    --inputbox: #000000;
 }
 
 
